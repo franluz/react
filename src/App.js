@@ -1,26 +1,28 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import {BrowserRouter,Route} from 'react-router-dom';
+import Rodape from './componentes/Rodape'
+import Inicio from './componentes/Inicio';
+import Cabecalho from './componentes/Cabecalho';
+import Servicos from './componentes/Servicos';
+import Portifolio from './componentes/Portifolio';
+import Precos from './componentes/Precos';
+import Contato from './componentes/Contato';
+import Admin from './admin/Admin'
 class App extends Component {
   render() {
     return (
+      <BrowserRouter>
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+       <Cabecalho></Cabecalho>
+       <Route exact path="/"  component={Inicio}/>
+       <Route path='/servicos'  component={Servicos}/>
+       <Route path='/portifolio'  component={Portifolio}/>
+       <Route path='/precos' component={Precos}/>
+       <Route path='/contato' component={Contato}/> 
+       <Route path='/admin' component={Admin}/> 
+       <Rodape/>
       </div>
+      </BrowserRouter>
     );
   }
 }
